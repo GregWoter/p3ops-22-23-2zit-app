@@ -1,5 +1,5 @@
 # Here, we include the dotnet core SDK as the base to build our app
-FROM mcr.microsoft.com/dotnet/core/sdk:5.0 AS build-env
+FROM mcr.microsoft.com/dotnet/core/sdk:6.0 AS build-env
 # Setting the work directory for our app
 WORKDIR /p3ops-22-23-2zit-app
 
