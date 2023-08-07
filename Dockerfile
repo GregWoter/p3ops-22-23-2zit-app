@@ -1,16 +1,16 @@
 # Here, we include the dotnet core SDK as the base to build our app
-FROM mcr.microsoft.com/dotnet/core/sdk:6.0 AS build-env
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build-env
 # Setting the work directory for our app
 WORKDIR /p3ops-22-23-2zit-app
 
 # We copy the .csproj of our app to root and 
+COPY . ./
 # restore the dependencies of the project.
-COPY /p3ops-22-23-2zit-app/src/Server/Server.csproj ./
+# COPY /p3ops-22-23-2zit-app/src/Server/Server.csproj ./
 RUN dotnet restore "src/Server/Server.csproj"
 
 # We proceed by copying all the contents in
 # the main project folder to root and build it
-COPY . ./
 RUN dotnet build "src/Server/Server.csproj" -c Release -o /build
 
 # Once we're done building, we'll publish the project
