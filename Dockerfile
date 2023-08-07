@@ -5,6 +5,11 @@ WORKDIR /p3ops-22-23-2zit-app
 
 # We copy the .csproj of our app to root and 
 COPY . ./
+
+#Database arguments
+ENV DOTNET_ENVIRONMENT = Production
+ENV DOTNET_ConnectionStrings__SqlDatabase = "SqlServer": "Server=127.0.0.1,1433;Database=tempdb;User Id=SA;Password=R0tieFAkor.123"
+
 # restore the dependencies of the project.
 # COPY /p3ops-22-23-2zit-app/src/Server/Server.csproj ./
 RUN dotnet restore "src/Server/Server.csproj"
