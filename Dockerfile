@@ -1,5 +1,9 @@
 # Here, we include the dotnet core SDK as the base to build our app
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build-env
+
+ENV DOTNET_ENVIRONMENT = Production
+ENV DOTNET_ConnectionStrings__SqlDatabase = "SqlServer": "Server=127.0.0.1,1433;Database=tempdb;User Id=SA;Password=R0tieFAkor.123"
+
 # Setting the work directory for our app
 WORKDIR /p3ops-22-23-2zit-app
 
@@ -7,8 +11,6 @@ WORKDIR /p3ops-22-23-2zit-app
 COPY . ./
 
 #Database arguments
-ENV DOTNET_ENVIRONMENT = Production
-ENV DOTNET_ConnectionStrings__SqlDatabase = "SqlServer": "Server=127.0.0.1,1433;Database=tempdb;User Id=SA;Password=R0tieFAkor.123"
 
 # restore the dependencies of the project.
 # COPY /p3ops-22-23-2zit-app/src/Server/Server.csproj ./
