@@ -33,5 +33,10 @@ WORKDIR /usr/share/nginx/html
 # We'll copy all the contents from wwwroot in the publish
 # folder into nginx/html for nginx to serve. The destination
 # should be the same as what you set in the nginx.conf.
-COPY --from=publish /publish/wwwroot /usr/local/webapp/nginx/html
+
+COPY --from=publish /publish /usr/local/webapp/nginx/html
 COPY nginx.conf /etc/nginx/nginx.conf
+RUN dotnet publish "/usr/local/webapp/nginx/html/Server.dll" -c Release -o out
+
+# COPY --from=publish /publish/wwwroot /usr/local/webapp/nginx/html
+# COPY nginx.conf /etc/nginx/nginx.conf
