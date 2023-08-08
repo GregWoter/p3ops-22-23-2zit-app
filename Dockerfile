@@ -36,7 +36,6 @@ WORKDIR /usr/share/nginx/html
 
 COPY --from=publish /publish /usr/local/webapp/nginx/html
 COPY nginx.conf /etc/nginx/nginx.conf
-ENTRYPOINT ["dotnet", "publish/Server.dll"]
 
 # COPY --from=publish /publish/wwwroot /usr/local/webapp/nginx/html
 # COPY nginx.conf /etc/nginx/nginx.conf
