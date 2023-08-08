@@ -2,8 +2,10 @@
 FROM mcr.microsoft.com/mssql/server:2022-latest
 
 # Create app directory
-RUN sudo mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+RUN mkdir -p /newfolder
+RUN chown newuser /newfolder
+USER newuser
+WORKDIR /newfolder
 
 # Copy initialization scripts
 COPY customDB/. /usr/src/app
