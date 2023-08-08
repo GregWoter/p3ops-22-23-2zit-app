@@ -6,7 +6,7 @@ services:
     container_name: nginx
     depends_on:
       web:
-        condition: service_healthy
+        condition: service_started
     build:
       context: .
       dockerfile: Dockerfile_nginx
@@ -30,7 +30,7 @@ services:
     container_name: web
     depends_on:
       mssql:
-        condition: service_healthy
+        condition: service_started
     build: 
       context: .
       dockerfile: Dockerfile_app
