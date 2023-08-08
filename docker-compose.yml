@@ -1,13 +1,16 @@
 version: '3'
 services:
   web:
-    build: /Dockerfile.app
+    build: 
+      context: .
+      dockerfile: Dockerfile.app
     ports:
      - "5000:80"
 
   nginx:
-    build: 
-      dockerfile: /Dockerfile.nginx
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
     ports:
       - "9100:80"
 
