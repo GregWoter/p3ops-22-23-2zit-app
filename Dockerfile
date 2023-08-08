@@ -23,4 +23,4 @@ RUN dotnet publish "Server.csproj" -c Release -o /app/publish /p:UseAppHost=fals
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Server.dll"]
+ENTRYPOINT ["dotnet", "Server.dll", "--connectionString='Server=0.0.0.0,1433;Database=tempdb;User Id=SA;Password=R0tieFAkor.123'"]
