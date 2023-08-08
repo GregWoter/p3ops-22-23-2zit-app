@@ -1,0 +1,15 @@
+version: '3'
+services:
+  web:
+    # will build ./docker/web/Dockerfile
+    build: ./docker/app
+    ports:
+     - "5000:80"
+    volumes:
+     - .:/code
+  nginx:
+    # will build ./docker/db/Dockerfile
+    build: ./docker/nginx
+    ports:
+      - "9100:80"
+
