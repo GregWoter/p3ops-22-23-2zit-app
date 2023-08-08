@@ -5,7 +5,7 @@ services:
     image: nginx
     container_name: nginx
     depends_on:
-      - mssql:
+      mssql:
         condition: service_completed_successfully
     build:
       context: .
@@ -29,7 +29,7 @@ services:
     image: web
     container_name: web
     depends_on:
-      - nginx:
+      nginx:
         condition: service_completed_successfully
     build: 
       context: .
