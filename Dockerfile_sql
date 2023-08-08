@@ -2,7 +2,7 @@
 FROM mcr.microsoft.com/mssql/server:2022-latest
 
 # Create app directory
-USER ROOT
+USER root
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
