@@ -3,14 +3,14 @@ services:
   web:
     build: 
       context: .
-      dockerfile: Dockerfile.app
+      dockerfile: Dockerfile_app
     ports:
      - "5000:80"
 
   nginx:
     build:
       context: .
-      dockerfile: Dockerfile.nginx
+      dockerfile: Dockerfile_nginx
     ports:
       - "9100:80"
 
