@@ -2,7 +2,7 @@
 FROM mcr.microsoft.com/mssql/server:2022-latest
 
 # Create app directory
-RUN mkdir -p /usr/src/app
+RUN sudo mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 # Copy initialization scripts
