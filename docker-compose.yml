@@ -6,6 +6,14 @@ services:
       dockerfile: Dockerfile_app
     ports:
      - '5000:80'
+    restart: always
+
+  mssql:
+    build:
+      context: .
+      dockerfile: Dockerfile_sql
+    ports:
+      - '1433:1433'  
 
   nginx:
     build:
@@ -16,10 +24,5 @@ services:
       - '443:443'
     restart: always
 
-  mssql:
-    build:
-      context: .
-      dockerfile: Dockerfile_sql
-    ports:
-      - '1433:1433'
+
 
