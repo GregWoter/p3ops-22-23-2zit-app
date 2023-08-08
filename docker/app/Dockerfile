@@ -6,13 +6,13 @@ EXPOSE 1433
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /p3ops-22-23-2zit-app/src
-COPY ["src/Server/Server.csproj", "src/Server/"]
-COPY ["src/Client/Client.csproj", "src/Client/"]
-COPY ["src/Shared/Shared.csproj", "src/Shared/"]
-COPY ["src/Services/Services.csproj", "src/Services/"]
-COPY ["src/Domain/Domain.csproj", "src/Domain/"]
-COPY ["src/Persistence/Persistence.csproj", "src/Persistence/"]
-RUN dotnet restore "src/Server/Server.csproj"
+COPY ["/p3ops-22-23-2zit-app/src/Server/Server.csproj", "src/Server/"]
+COPY ["/p3ops-22-23-2zit-app/src/Client/Client.csproj", "src/Client/"]
+COPY ["/p3ops-22-23-2zit-app/src/Shared/Shared.csproj", "src/Shared/"]
+COPY ["/p3ops-22-23-2zit-app/src/Services/Services.csproj", "src/Services/"]
+COPY ["/p3ops-22-23-2zit-app/src/Domain/Domain.csproj", "src/Domain/"]
+COPY ["/p3ops-22-23-2zit-app/src/Persistence/Persistence.csproj", "src/Persistence/"]
+RUN dotnet restore "/p3ops-22-23-2zit-app/src/Server/Server.csproj"
 
 COPY . .
 WORKDIR "/src/src/Server"
