@@ -15,7 +15,7 @@ EXPOSE 80
 #expose the web ssl port
 EXPOSE 443 
 # We copy the .csproj of our app to root and 
-COPY . .
+COPY . ./
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 # COPY ["Server/Server.csproj", "Server/"]
