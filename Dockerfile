@@ -19,14 +19,14 @@ EXPOSE 443
 COPY ["Server/Server.csproj", "Server/"]
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 #Database arguments
-WORKDIR /src
+WORKDIR /p3ops-22-23-2zit-app/src
 # restore the dependencies of the project.
 # COPY /p3ops-22-23-2zit-app/src/Server/Server.csproj ./
 
 RUN dotnet restore "Server/Server.csproj"
 COPY . .
 
-WORKDIR /src/Server
+WORKDIR /p3ops-22-23-2zit-app/src/Server
 # We proceed by copying all the contents in
 # the main project folder to root and build it
 RUN dotnet build "Server.csproj" -c Release -o /p3ops-22-23-2zit-app/build
