@@ -16,10 +16,12 @@ EXPOSE 80
 EXPOSE 443 
 # We copy the .csproj of our app to root and 
 # COPY . ./
-COPY ["Server/Server.csproj", "Server/"]
+
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
-#Database arguments
 WORKDIR /p3ops-22-23-2zit-app/src
+COPY ["Server/Server.csproj", "Server/"]
+#Database arguments
+
 # restore the dependencies of the project.
 # COPY /p3ops-22-23-2zit-app/src/Server/Server.csproj ./
 
