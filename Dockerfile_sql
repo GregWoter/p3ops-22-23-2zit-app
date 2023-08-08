@@ -2,16 +2,13 @@
 FROM mcr.microsoft.com/mssql/server:2022-latest
 
 # Create app directory
-RUN mkdir -p /newfolder
-RUN chown newuser /newfolder
-USER newuser
-WORKDIR /newfolder
+WORKDIR /usr
 
 # Copy initialization scripts
-COPY customDB/. /usr/src/app
+COPY customDB/. /usr
 
 # Grant permissions for the run-initialization script to be executable
-RUN chmod +x /usr/src/app/run-initialization.sh
+RUN chmod +x /usr/run-initialization.sh
 
 # Set environment variables, not to have to write them with docker run command
 # Note: make sure that your password matches what is in the run-initialization script 
