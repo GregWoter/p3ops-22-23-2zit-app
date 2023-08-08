@@ -5,14 +5,21 @@ services:
       context: .
       dockerfile: Dockerfile_app
     ports:
-     - "5000:80"
+     - '5000:80'
 
   nginx:
     build:
       context: .
       dockerfile: Dockerfile_nginx
     ports:
-      - 80:80
-      - 443:443
+      - '80:80'
+      - '443:443'
     restart: always
+
+  mssql:
+    build:
+      context: .
+      dockerfile: Dockerfile_sql
+    ports:
+      - '1433:1433'
 
