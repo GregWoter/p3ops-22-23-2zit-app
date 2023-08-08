@@ -5,7 +5,7 @@ EXPOSE 443
 EXPOSE 1433
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
-WORKDIR /src
+WORKDIR /p3ops-22-23-2zit-app/src
 COPY ["src/Server/Server.csproj", "src/Server/"]
 COPY ["src/Client/Client.csproj", "src/Client/"]
 COPY ["src/Shared/Shared.csproj", "src/Shared/"]
