@@ -19,7 +19,7 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /p3ops-22-23-2zit-app/src
-COPY ["Server/Server.csproj", "Server/"]
+# COPY ["Server/Server.csproj", "Server/"]
 #Database arguments
 
 # restore the dependencies of the project.
