@@ -13,8 +13,7 @@ COPY ["src/Services/Services.csproj", "src/Services/"]
 COPY ["src/Domain/Domain.csproj", "src/Domain/"]
 COPY ["src/Persistence/Persistence.csproj", "src/Persistence/"]
 RUN dotnet restore "src/Server/Server.csproj"
-ENV DOTNET_ENVIRONMENT Development
-ENV DOTNET_ConnectionStrings__SqlDatabase "Server=0.0.0.0,1433;Database=tempdb;User Id=SA;Password=R0tieFAkor.123"
+
 COPY . .
 WORKDIR "/src/src/Server"
 RUN dotnet build "Server.csproj" -c Release -o /app/build
