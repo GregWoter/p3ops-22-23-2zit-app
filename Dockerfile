@@ -15,7 +15,7 @@ EXPOSE 80
 #expose the web ssl port
 EXPOSE 443 
 # We copy the .csproj of our app to root and 
-# COPY . ./
+COPY . .
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 # COPY ["Server/Server.csproj", "Server/"]
@@ -25,7 +25,7 @@ FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 # COPY /p3ops-22-23-2zit-app/src/Server/Server.csproj ./
 
 RUN dotnet restore "src/Server/Server.csproj"
-COPY . .
+# COPY . .
 
 # We proceed by copying all the contents in
 # the main project folder to root and build it
