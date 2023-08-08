@@ -16,6 +16,9 @@ services:
 
 
   mssql:
+    environment:
+            - ACCEPT_EULA=Y
+            - MSSQL_SA_PASSWORD=R0tieFAkor.123
     image: mssql
     container_name: mssql
     build:
