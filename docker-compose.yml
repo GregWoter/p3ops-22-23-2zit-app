@@ -2,14 +2,13 @@ version: '3'
 services:
   web:
     build: 
-      dockerfile: dockerfile.app
+      dockerfile: Dockerfile.app
     ports:
      - "5000:80"
     volumes:
-     - .:/code
   nginx:
     build: 
-      dockerfile: dockerfile.nginx
+      dockerfile: Dockerfile.nginx
     ports:
       - "9100:80"
 
