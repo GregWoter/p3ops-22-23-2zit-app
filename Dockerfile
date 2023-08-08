@@ -18,28 +18,25 @@ EXPOSE 443
 # COPY . ./
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
-WORKDIR /p3ops-22-23-2zit-app/src
 # COPY ["Server/Server.csproj", "Server/"]
 #Database arguments
 
 # restore the dependencies of the project.
 # COPY /p3ops-22-23-2zit-app/src/Server/Server.csproj ./
 
-RUN dotnet restore "/p3ops-22-23-2zit-app/src/Server/Server.csproj"
+RUN dotnet restore "src/Server/Server.csproj"
 COPY . .
 
-WORKDIR /p3ops-22-23-2zit-app/src/Server
 # We proceed by copying all the contents in
 # the main project folder to root and build it
-RUN dotnet build "/p3ops-22-23-2zit-app/src/Server/Server.csproj" -c Release -o /p3ops-22-23-2zit-app/build
+RUN dotnet build "src/Server/Server.csproj" -c Release -o /p3ops-22-23-2zit-app/build
 
 # Once we're done building, we'll publish the project
 # to the publish folder 
 FROM build AS publish
-RUN dotnet publish "/p3ops-22-23-2zit-app/src/Server/Server.csproj" -c Release -o /p3ops-22-23-2zit-app/publish
+RUN dotnet publish "src/Server/Server.csproj" -c Release -o /p3ops-22-23-2zit-app/publish
 
 FROM base AS final
-WORKDIR /p3ops-22-23-2zit-app
 COPY --from=publish /p3ops-22-23-2zit-app/publish . 
 ENTRYPOINT ["dotnet", "publish/Server.dll"]
 
