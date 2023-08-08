@@ -25,18 +25,18 @@ WORKDIR /p3ops-22-23-2zit-app/src
 # restore the dependencies of the project.
 # COPY /p3ops-22-23-2zit-app/src/Server/Server.csproj ./
 
-RUN dotnet restore "Server/Server.csproj"
+RUN dotnet restore "/p3ops-22-23-2zit-app/src/Server/Server.csproj"
 COPY . .
 
 WORKDIR /p3ops-22-23-2zit-app/src/Server
 # We proceed by copying all the contents in
 # the main project folder to root and build it
-RUN dotnet build "Server.csproj" -c Release -o /p3ops-22-23-2zit-app/build
+RUN dotnet build "/p3ops-22-23-2zit-app/src/Server/Server.csproj" -c Release -o /p3ops-22-23-2zit-app/build
 
 # Once we're done building, we'll publish the project
 # to the publish folder 
 FROM build AS publish
-RUN dotnet publish "Server.csproj" -c Release -o /p3ops-22-23-2zit-app/publish
+RUN dotnet publish "/p3ops-22-23-2zit-app/src/Server/Server.csproj" -c Release -o /p3ops-22-23-2zit-app/publish
 
 FROM base AS final
 WORKDIR /p3ops-22-23-2zit-app
