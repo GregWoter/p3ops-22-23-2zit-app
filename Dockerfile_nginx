@@ -1,6 +1,6 @@
 # use the nginx image that is found on docker hub
 FROM nginx:alpine 
-# RUN rm -rf /etc/nginx/nginx.conf
+RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt
 # # copy the configuration file from the previous step
 
 # COPY /nginx.conf /etc/nginx/
