@@ -1,5 +1,7 @@
 # use the nginx image that is found on docker hub
 FROM nginx:alpine 
 # # copy the configuration file from the previous step
+COPY generate-certs /usr/local/bin/generate-certs
 
+CMD /usr/local/bin/generate-certs
 # COPY /nginx.conf /etc/nginx/
