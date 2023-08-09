@@ -43,18 +43,5 @@ services:
     ports: 
       - '5000:80'
 
-  openvas:
-    restart: always
-    image: mikesplain/openvas
-    hostname: openvas
-    ports:
-      - '9000:443'
-    volumes:
-      - "./data/openvas:/var/lib/openvas/mgr/"
-    environment:
-      OV_PASSWORD: admin
-    labels:
-        deck-chores.dump.command: sh -c "greenbone-nvt-sync; openvasmd --rebuild --progress"
-        deck-chores.dump.interval: daily
 
 
