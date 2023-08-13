@@ -1,6 +1,14 @@
 pipeline {
     agent any
     stages {
+        stage('Static Analysis / Linting') {
+            steps {
+                script {
+                    // Run linting commands here
+                    sh 'dotnet build -p:RunCodeAnalysis=true'
+                }
+            }
+            }
     stage('Deletion old containers') {
         steps {
                 script {
