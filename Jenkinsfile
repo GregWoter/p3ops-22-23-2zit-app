@@ -1,4 +1,6 @@
-node {
+pipeline {
+    agent any
+    stages {
     stage('Build') {
         steps {
                 script {
@@ -19,5 +21,6 @@ node {
                     sh "sudo docker-compose up -d"
                 }
             }
+}
 }
 }
