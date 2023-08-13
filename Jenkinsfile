@@ -6,7 +6,8 @@ pipeline {
                 script {
                     sh "sudo docker-compose down"
                 }
-            }    
+            }
+}    
     stage('Build') {
         steps {
                 script {
@@ -29,7 +30,6 @@ pipeline {
                     sh "sudo docker-compose up -d"
                 }
             }
-}
 }
 }
 }
