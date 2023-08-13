@@ -34,6 +34,8 @@ services:
   web:
     image: web
     container_name: web
+    environment:
+            - DOTNET_ConnectionStrings__SqlDatabase=Server=mssql;Database=mydbname;User Id=sa;Password=R0tieFAkor.123;
     depends_on:
       mssql:
         condition: service_started
