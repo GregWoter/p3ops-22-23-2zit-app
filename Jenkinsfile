@@ -1,6 +1,12 @@
 pipeline {
     agent any
     stages {
+    stage('Deletion old containers') {
+        steps {
+                script {
+                    sh "sudo docker-compose down"
+                }
+            }    
     stage('Build') {
         steps {
                 script {
@@ -12,6 +18,8 @@ pipeline {
         steps {
                 script {
                     sh "dotnet restore src/Server/Server.csproj"
+                    sh "dotnet restore tests/Domain.Tests/Domain.Tests.csproj"
+                    sh "dotnet test tests/Domain.Tests/Domain.Tests.csproj"
                 }
             }
 }
