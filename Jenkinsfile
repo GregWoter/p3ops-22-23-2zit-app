@@ -1,11 +1,23 @@
 node {
     stage('Build') {
-    sh "sudo docker-compose build"
+        steps {
+                script {
+                    sh "sudo docker-compose build"
+                }
+            }
 }
- stage('Deployment') {
-    sh "dotnet restore src/Server/Server.csproj"
+ stage('Tests') {
+        steps {
+                script {
+                    sh "dotnet restore src/Server/Server.csproj"
+                }
+            }
 }
- stage('Build') {
-    sh "sudo docker-compose up -d"
+    stage('Deployment') {
+        steps {
+                script {
+                    sh "sudo docker-compose up -d"
+                }
+            }
 }
 }
