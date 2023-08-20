@@ -4,7 +4,7 @@ pipeline {
         stage('Static Analysis / Linting') {
             steps {
                 script {
-                    // Run linting commands here
+                    // Static Analysis
                     sh 'dotnet build -p:RunCodeAnalysis=true'
                 }
             }
