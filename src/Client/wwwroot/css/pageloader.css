@@ -33,8 +33,8 @@
 .pageloader {
     position: fixed;
     padding-top: 2em;
-    background: #ec8804;
-    background: #ec8804;
+    background: #2910c9;
+    background: #2910c9;
     z-index: 999998;
     transition: transform .35s ease-out,-webkit-transform .35s ease-out;
     will-change: transform
